@@ -13,7 +13,7 @@ This website is a collection of creepy/scary stories from around the world. With
 
 ## App Link
 
-frantic-achieve.surge.sh
+
 
 ## MVP
 1. CRUD functionality for Stories
