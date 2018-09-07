@@ -41,22 +41,22 @@ Comment.create(creator: 'Spooks', content: 'Im never swimming again', story_id: 
 =end
 
 4.times do
-    Story.create({
+    Story.create!([
       title: FFaker::Lorem.sentence(word_count = 4),
       author: FFaker::Name.name,
       genre: FFaker::Lorem.word,
       content: FFaker::Lorem.paragraph(sentence_count = 5),
       img_url: FFaker::Internet.http_url,
       story_url: FFaker::Internet.http_url
-    })
+])
   end
   
   Story.all.each do |story|
     2.times do
-      Comment.create!({
+      Comment.create!([
         creator: FFaker::Name.name,
         content: FFaker::Lorem.sentence(word_count = 15),
         story: story
-      })
+    ])
     end
   end

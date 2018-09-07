@@ -15,9 +15,13 @@ export function getStories() {
 };
 
 
-function getComments() {
-    return fetch(BASE_URL + '/comments')
+
+function getComments(id) {
+    return fetch(BASE_URL + `/stories/${id}/comments`)
     .then(resp => resp.json())
+    .catch(err => {
+        throw Error(err);
+      })
 }
 
 

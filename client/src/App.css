@@ -9,7 +9,7 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 100px;
   padding: 20px;
   color: white;
 }
@@ -25,4 +25,37 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+footer {
+  width: 100%;
+  text-transform: uppercase;
+  background-color: #0D2C40;
+  color: yellow;
+  font-size: 14px;
+  letter-spacing: .08em;
+  font-weight: 500;
+}
+.copyright {
+  float: left;
+  font-family: "Raleway" , sans-serif;
+}
+
+.message {
+  float: right;
+  font-family: "Raleway" , sans-serif;
+  color: #0D2C40;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: " ";
+  clear: both;
+  height: 0;
+  font-size: 0;
+}
+.name {
+  color: rgb(218, 190, 33);
+  font-weight: 700;
 }
