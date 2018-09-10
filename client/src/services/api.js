@@ -1,9 +1,5 @@
 const BASE_URL = process.env.REACT_APP_API_URL
 
-//function getStories() {
-//    return fetch(BASE_URL + '/stories')
-//    .then(resp => resp.json())
-//}
 
 //GET ALL STORIES
 function getStories() {
@@ -24,6 +20,8 @@ function getComments(story_id) {
       });
 }
 
+
+
 //SHOW A STORY
 function getOneStory(id) {
     return fetch(BASE_URL + `/stories/${id}`)
@@ -35,6 +33,7 @@ function getOneStory(id) {
   };
 
 
+
 //CREATE A STORY
 function saveStory(story) {
     const opts = {
@@ -44,7 +43,6 @@ function saveStory(story) {
         'Content-Type': 'application/json'
       }
     };
-  
     return fetch(BASE_URL + `/stories`, opts)
       .then(resp => resp.json());
   };
@@ -65,7 +63,17 @@ export function saveComment(comment,story_id) {
 
 
 //UPDATE/EDIT A STORY
-
+function updateStory(story) {
+    const opts = {
+      method: 'PUT',
+      body: JSON.stringify(story),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    return fetch(BASE_URL + `/stories/${story.id}`, opts)
+      .then(resp => resp.json());
+  };
 
 //UPDATE/EDIT A COMMENT
 
@@ -81,5 +89,6 @@ export {
     getStories,
     getComments,
     getOneStory,
-    saveStory
+    saveStory,
+    updateStory
 };

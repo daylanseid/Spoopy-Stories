@@ -37,10 +37,12 @@ function StoryIndex(props){
         <div>
             {props.stories.map(story => {
                 return (
-                    <div key={story.id}>
+                    <div className ="podcast-index" key={story.id}>
                     <img src="http://www.scaryforkids.com/pics/look-at-me.jpg" alt="Story Poster"/>
                     <h1>Title: {story.title}</h1>
-                    <h2>Author: {story.author}</h2>                      
+       
+                    <h2>Author: {story.author}</h2> 
+                                      
                     </div>
                 );
             })}

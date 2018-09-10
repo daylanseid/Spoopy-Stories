@@ -4,7 +4,7 @@ import Header from './components/Header';
 import StoryIndex from './components/StoryIndex';
 import StoryDetails from './components/StoryDetails';
 import CreateStory from './components/CreateStory';
-import EditBook from './components/EditBook';
+import EditStory from './components/EditStory';
 
 import './App.css';
 import {
@@ -15,8 +15,8 @@ import {
   updateStory }from './services/api';
 import Footer from './components/Footer';
 
-//getStories()
-//.then(data => console.log(data));
+getStories()
+.then(data => console.log(data.stories));
 
 getComments()
   .then(data => console.log(data.comments))
@@ -44,6 +44,8 @@ class App extends Component {
         this.setState({ stories: data.stories })});
   }
 
+
+//SELECTED STORY GETS UPDATED
   selectStory(story) {
     this.setState({
       selectedStory: story,
@@ -51,18 +53,39 @@ class App extends Component {
     });
   }
 
-
+//CREATE A STORY
   createStory(story) {
     saveStory(story)
     .then(data => getStories())
     .then(data => {
       this.setState ({
-        currentView: 'Story Index',
+        currentView: 'Create Story',
         stories: data.stories
       });
     });
   }
 
+//GET ONE STORY
+getAStory(story) {
+  getOneStory(story)
+    .then(data => {
+      this.setState({
+        selectedStory: data.stories
+      });
+    })
+}
+
+//UPDATE A STORY
+  updateStory(story) {
+    updateStory(story)
+      .then(data => getOneStory())
+      .then(data => {
+        this.setState({
+          currentView: 'Story Index',
+          stories: data.stories
+        });
+      })
+  }
 
   determineWhichToRender() {
     const { currentView } = this.state;
@@ -71,13 +94,20 @@ class App extends Component {
     switch (currentView) {
       case 'Story Index':
         return <StoryIndex
-         stories={stories}/>;
+         stories={stories}
+         detail = {this.getAStory}/>;
         break;
         case 'Create Story':
         return <CreateStory 
         onSubmit={this.createStory}
         />;
         break;
+        case 'Edit Story':
+        const story = stories.find(story => story.story_id === selectedStory.story_id);
+        return <EditStory
+        onSubmit={this.updateStory}
+        story={story} />
+
     }
   }
 
@@ -89,7 +119,7 @@ class App extends Component {
   render() {
     const links = [
       'Story Index',
-      'Comment Index',
+      'Edit Story',
       'Create Story',
       'Create Comment'
     ];

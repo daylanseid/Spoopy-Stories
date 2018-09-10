@@ -28,6 +28,7 @@
   to { transform: rotate(360deg); }
 }
 
+/* NAV BAR */
 
 .header {
   width: 100vw; 
@@ -116,12 +117,22 @@
 }
 
 
+
 img {
   display: inline-block;
   height: 100px;
   width: 100px;
 }
 
+/* FORMS */
+
+
+
+/* PODCAST INDEX */
+
+.podcast-index {
+  text-align: center;
+}
 
 /* FOOTER */
 footer {

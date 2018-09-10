@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-//same as createbook, just with author
-class CreateAuthor extends Component {
+
+class CreateStory extends Component {
 
   constructor(props) {
     super(props);
@@ -10,7 +10,7 @@ class CreateAuthor extends Component {
       author: '',
       genre:'',
       content:'',
-      img_url: '',
+      img_url: 'https://static.thenounproject.com/png/187803-200.png',
       story_url:''
     };
 
@@ -21,8 +21,17 @@ class CreateAuthor extends Component {
   handleSubmit(ev) {
     ev.preventDefault();
     this.props.onSubmit(this.state);
+    this.setState({
+        title: '',
+        author: '',
+        genre: '',
+        content: '',
+        story_url: '',
+        img_url: 'https://static.thenounproject.com/png/187803-200.png'
+      })
   }
 
+  //changes state based on user input
   handleChange(ev) {
     const { name, value } = ev.target;
     this.setState({
@@ -42,30 +51,40 @@ class CreateAuthor extends Component {
             name="title"
             onChange={this.handleChange}
             value={this.state.title} />
+            <br />
+            <br />
           <label> Author </label>
           <input
             type="text"
             name="author"
             onChange={this.handleChange}
             value={this.state.author} />
+            <br />
+            <br />
           <label> Genre </label>
           <input
             type="text"
             name="genre"
             onChange={this.handleChange}
             value={this.state.genre} />
+            <br />
+            <br />
           <label> Content </label>
           <input
             type="text"
             name="content"
             onChange={this.handleChange}
             value={this.state.content} />
+            <br />
+            <br />
           <label> Story Link </label>
           <input
             type="text"
             name="story_url"
             onChange={this.handleChange}
             value={this.state.story_url} />
+            <br />
+            <br />
              <label> Image Link </label>
           <input
             type="text"
@@ -79,4 +98,4 @@ class CreateAuthor extends Component {
   }
 }
 
-export default CreateAuthor;
+export default CreateStory;
