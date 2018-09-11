@@ -10,7 +10,7 @@
 Comment.delete_all
 Story.delete_all
 
-=begin
+
 
 #Stories
 Story.create(author: 'The Spooks', title:'A Mothers Call', content: 'A young girl is playing in her bedroom when she hears her mother call to her from the kitchen, so she runs downstairs to meet her mother.', genre: 'Intruder', img_url: 'http://i.ytimg.com/vi/vu0gyQUgi5g/mqdefault.jpg', story_url: 'http://creepypasta.wikia.com/wiki/Mother%27s_Call')
@@ -38,25 +38,5 @@ Comment.create(creator: 'ScaredyOne', content: 'Im never going camping alone', s
 #Comments for Story 4
 Comment.create(creator: 'Spooks', content: 'Im never swimming again', story_id: 4)
 
-=end
 
-4.times do
-    Story.create!([
-      title: FFaker::Lorem.sentence(word_count = 4),
-      author: FFaker::Name.name,
-      genre: FFaker::Lorem.word,
-      content: FFaker::Lorem.paragraph(sentence_count = 5),
-      img_url: FFaker::Internet.http_url,
-      story_url: FFaker::Internet.http_url
-])
-  end
-  
-  Story.all.each do |story|
-    2.times do
-      Comment.create!([
-        creator: FFaker::Name.name,
-        content: FFaker::Lorem.sentence(word_count = 15),
-        story: story
-    ])
-    end
-  end
+

@@ -15,12 +15,16 @@ import {
   updateStory }from './services/api';
 import Footer from './components/Footer';
 
-getStories()
-.then(data => console.log(data.stories));
+getOneStory(1)
+.then(data => console.log(data.story));
 
-getComments()
+
+//getStories()
+//.then(data => console.log(data.stories));
+
+getComments(1)
   .then(data => console.log(data.comments))
-  .catch(err => console.log(err));
+ .catch(err => console.log(err));
 
 
 class App extends Component {
@@ -37,7 +41,7 @@ class App extends Component {
   }
   //When the page loads, all stories will show
   componentDidMount() {
-    getStories()
+    getStories(1)
       .then(data => {
         //debugger
         console.log(data.stories);
@@ -87,6 +91,9 @@ getAStory(story) {
       })
   }
 
+
+
+
   determineWhichToRender() {
     const { currentView } = this.state;
     const { stories, comments, selectedStory } = this.state;
@@ -106,7 +113,8 @@ getAStory(story) {
         const story = stories.find(story => story.story_id === selectedStory.story_id);
         return <EditStory
         onSubmit={this.updateStory}
-        story={story} />
+        story={story}
+         />
 
     }
   }

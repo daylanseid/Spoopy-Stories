@@ -94,6 +94,7 @@ class CreateStory extends Component {
           <input type="submit" value="Create Story" />
         </form>
       </div>
+      
     );
   }
 }

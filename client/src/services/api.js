@@ -11,15 +11,14 @@ function getStories() {
 }
 
 
-//GET ALL COMMENTS BASED ON STORY ID- ID undefined
-function getComments(story_id) {
-    return fetch(BASE_URL + `/stories/${story_id}/comments`)
+//GET ALL COMMENTS based on story id
+function getComments(id) {
+    return fetch(BASE_URL + `/stories/${id}/comments`)
     .then(resp => resp.json())
     .catch(err => {
         throw Error(err);
       });
 }
-
 
 
 //SHOW A STORY
@@ -35,10 +34,11 @@ function getOneStory(id) {
 
 
 //CREATE A STORY
+//Data comes in as nested information under data and attributes. Must also use spread
 function saveStory(story) {
     const opts = {
       method: 'POST',
-      body: JSON.stringify(story),
+      body: JSON.stringify({ "data": { "attributes": { ...story } } }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -48,7 +48,6 @@ function saveStory(story) {
   };
 
 //CREATE A COMMENT
-
 export function saveComment(comment,story_id) {
     const opts = {
       method: 'POST',
@@ -57,7 +56,7 @@ export function saveComment(comment,story_id) {
         'Content-Type': 'application/json'
       }
     };
-    return fetch(BASE_URL + `/stories/${story_id}/comments`, opts)
+    return fetch(BASE_URL + `/stories/${comment.story_id}/comments`, opts)
       .then(resp => resp.json());
   };
 

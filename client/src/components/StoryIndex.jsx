@@ -38,9 +38,8 @@ function StoryIndex(props){
             {props.stories.map(story => {
                 return (
                     <div className ="podcast-index" key={story.id}>
-                    <img src="http://www.scaryforkids.com/pics/look-at-me.jpg" alt="Story Poster"/>
-                    <h1>Title: {story.title}</h1>
-       
+                    <img src={story.img_url} alt="Story Poster"/>
+                    <h1>Title: {story.title}</h1>      
                     <h2>Author: {story.author}</h2> 
                                       
                     </div>
