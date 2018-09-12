@@ -33,15 +33,38 @@ class EditStory extends Component {
     }
   }
 
+// Toggle the modal closed and resets the form
+toggle() {
+    this.props.toggle('editModal')
+    this.setState({
+      title: '',
+      author: '',
+      genre: '',
+      content: '',
+      img_url: '',
+      story_url: '',
+    })
+  }
 
+/*
   // Toggles Modal
   toggle(e) {
     e.preventDefault();
     this.props.toggle('editModal');
   }
+*/
+
+  // Changes state based on user input into form
+  handleChange(evt) {
+    const { name, value } = evt.target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
 
   // Handles when edit form is submitted and resets form
-  handleSubmit(evt) {
+ handleSubmit(evt) {
     evt.preventDefault();
     const data = {
         title: this.props.story.title,
@@ -56,6 +79,16 @@ class EditStory extends Component {
     this.props.toggle('editModal');
   }
 
+/*
+handleSubmit(evt) {
+    evt.preventDefault();
+    this.props.update(this.state);
+    this.props.toggle('editModal');
+  }
+*/
+
+
+
   // Handles if the delete button is clicked to delete the podcast
   delete(e) {
     e.preventDefault();
@@ -63,15 +96,9 @@ class EditStory extends Component {
     this.props.toggle('editModal');
   }
 
-  // Changes state based on user input into form
-  handleChange(evt) {
-    const { name, value } = evt.target;
-    this.setState({
-      [name]: value,
-    });
-  }
-// Renders Modal to edit a podcast (using Bulma)
-render() {
+
+ // Renders Modal to edit a podcast (using Bulma)
+ render() {
     return (
       <div>
         <div className={this.props.active}>
@@ -97,7 +124,7 @@ render() {
                   <input
                     type="text"
                     name="author"
-                    value={this.state.author}
+                    value={this.state.creator}
                     onChange={this.handleChange}
                     placeholder="Author"
                   />
@@ -116,12 +143,9 @@ render() {
                   </select>
                   <br />
                   <label>Content:</label>
-                  <textarea
-                    className='textarea'
-                    id="genreText"
-                    rows='2'
+                  <input
                     type="text"
-                    name="content"
+                    name="Content"
                     value={this.state.content}
                     onChange={this.handleChange}
                     placeholder="Content"
@@ -133,7 +157,7 @@ render() {
                     name="img_url"
                     value={this.state.img_url}
                     onChange={this.handleChange}
-                    placeholder="Image Url"
+                    placeholder="Img Url"
                   />
                   <br />
                   <label>Story Link:</label>
@@ -148,7 +172,7 @@ render() {
                   <br />
                   <br />
                   <footer className="modal-card-foot">
-                    <button type="submit" value="Edit Podcast" className="button is-success">Save changes</button>
+                    <button type="submit" value="Edit Story" className="button is-success">Save changes</button>
                     <button onClick={this.toggle} className="button">Cancel</button>
                     <button onClick={this.delete} className="button is-danger">Delete Story</button>
                   </footer>
@@ -159,7 +183,7 @@ render() {
         </div>
       </div >
     );
-  }
+}
 }
 
 export default EditStory;

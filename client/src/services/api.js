@@ -23,10 +23,11 @@ function getComments(id) {
 
 //SHOW A STORY
 function getOneStory(id) {
-    return fetch(BASE_URL + `/stories/${id}`)
+    //console.log(id);
+    //debugger
+    return fetch(BASE_URL + `/stories/${id}`)   
     .then(resp => resp.json())
     .catch(err => {
-      console.log(err);
       throw Error(err);
     });
   };
@@ -48,7 +49,7 @@ function saveStory(story) {
   };
 
 //CREATE A COMMENT
-export function saveComment(comment,story_id) {
+ function saveComment(comment,story_id) {
     const opts = {
       method: 'POST',
       body: JSON.stringify(comment),
@@ -62,10 +63,10 @@ export function saveComment(comment,story_id) {
 
 
 //UPDATE/EDIT A STORY
-function updateStory(story) {
+function updateStory(story,id) {
     const opts = {
       method: 'PUT',
-      body: JSON.stringify(story),
+      body: JSON.stringify(story.id),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -78,6 +79,19 @@ function updateStory(story) {
 
 
 //DELETE A STORY
+ function deleteStory(story_id) {
+    const opts ={
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    return fetch(`${BASE_URL}/stories/${story_id}`, opts)
+    .then(resp => "deleted")
+    .catch(err => {
+      throw Error(err);
+    })
+  };
 
 
 //DELETE A COMMENT
@@ -89,5 +103,7 @@ export {
     getComments,
     getOneStory,
     saveStory,
-    updateStory
+    updateStory,
+    saveComment,
+    deleteStory
 };

@@ -8,7 +8,6 @@ class StoryIndex extends Component {
           //stories: []     
       }
     }
-   
     render() {
             debugger
             return (
@@ -23,29 +22,34 @@ class StoryIndex extends Component {
                 </div>               
             )
         }
-  }
-
-  
+  } 
 export default StoryIndex;
 */
 
-
 import React from 'react';
 
-function StoryIndex(props){
+function StoryIndex(props) {
     return (
-        <div>
+        <div className="storyindex">
             {props.stories.map(story => {
                 return (
-                    <div className ="podcast-index" key={story.id}>
-                    <img src={story.img_url} alt="Story Poster"/>
-                    <h1>Title: {story.title}</h1>      
-                    <h2>Author: {story.author}</h2> 
-                                      
+                    <div className="story-index" key={story.id}>
+                        <img src={story.img_url} alt="Story Poster" />
+                        <h1>Title: {story.title}</h1>
+                        <h3>Author: {story.author}</h3>
+                        <button className="story-detailbutton"
+                            onClick={(ev) => {
+                                // ev.preventDefault();
+                                props.detail(story)
+                                console.log(story)
+                            }} >
+                            View Story Detail
+                        </button>
                     </div>
                 );
             })}
         </div>
+        
     );
 }
 

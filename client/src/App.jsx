@@ -12,19 +12,20 @@ import {
   getComments, 
   getOneStory, 
   saveStory,
-  updateStory }from './services/api';
+  updateStory,
+  deleteStory}from './services/api';
 import Footer from './components/Footer';
 
-getOneStory(1)
-.then(data => console.log(data.story));
+//getOneStory(1)
+//.then(data => console.log(data.story));
 
 
 //getStories()
 //.then(data => console.log(data.stories));
 
 getComments(1)
-  .then(data => console.log(data.comments))
- .catch(err => console.log(err));
+ .then(data => console.log(data.comments))
+  .catch(err => console.log(err));
 
 
 class App extends Component {
@@ -35,19 +36,37 @@ class App extends Component {
       selectedStory: '',
       stories: [],
       comments: [],
+      storyDetails: {},
+      editModal: 'modal',
     }
     this.selectStory = this.selectStory.bind(this);
     this.createStory = this.createStory.bind(this);
+    this.fetchAllComments = this.fetchAllComments.bind(this);
+    this.getAStory = this.getAStory.bind(this);
+    this.updateStory = this.updateStory.bind(this);
+    this.deleteStory = this.deleteStory.bind(this);
   }
   //When the page loads, all stories will show
   componentDidMount() {
     getStories(1)
       .then(data => {
         //debugger
-        console.log(data.stories);
+        //console.log(data.stories);
         this.setState({ stories: data.stories })});
   }
 
+
+//GET ALL REVIEWS FOR A STORY
+fetchAllComments(id, title) {
+  getComments(id)
+    .then(data => {
+      this.setState({
+        reviews: data,
+        storyDetails: title
+      })
+    }
+    );
+}
 
 //SELECTED STORY GETS UPDATED
   selectStory(story) {
@@ -71,25 +90,45 @@ class App extends Component {
 
 //GET ONE STORY
 getAStory(story) {
-  getOneStory(story)
+  //console.log(story)
+  getOneStory(story.id)
     .then(data => {
+      debugger
+      console.log(data);
       this.setState({
-        selectedStory: data.stories
+        selectedStory: data.story,
+        currentView: 'Story Detail'
       });
     })
 }
 
 //UPDATE A STORY
   updateStory(story) {
+    //console.log(story);
     updateStory(story)
       .then(data => getOneStory())
       .then(data => {
         this.setState({
-          currentView: 'Story Index',
+          currentView: 'Edit Story',
           stories: data.stories
         });
       })
   }
+
+  //DELETE STORY
+ // Deletes a podcast and rerenders the index
+ deleteStory(id) {
+  deleteStory(id)
+    .then(data => {
+      getStories()
+        .then(data => this.setState({
+          stories: data.stories,
+          comments: [],
+          storyDetails: {},
+        }));
+    });
+}
+
 
 
 
@@ -101,8 +140,11 @@ getAStory(story) {
     switch (currentView) {
       case 'Story Index':
         return <StoryIndex
-         stories={stories}
-         detail = {this.getAStory}/>;
+         stories={this.state.stories}
+         detail = {this.getAStory}
+         //selectStory={this.selectStory}
+         view={this.fetchAllComments}
+         />;
         break;
         case 'Create Story':
         return <CreateStory 
@@ -110,11 +152,21 @@ getAStory(story) {
         />;
         break;
         case 'Edit Story':
-        const story = stories.find(story => story.story_id === selectedStory.story_id);
+        //const story = stories.find(story => story.id === selectedStory.id);
         return <EditStory
         onSubmit={this.updateStory}
-        story={story}
-         />
+        story={this.state.selectedStory}
+        active={this.state.editModal} 
+        delete={this.deletePodcast}
+         />;
+         break;
+         case 'Story Detail':
+         return <StoryDetails
+         onClick={this.selectStory}
+         story={this.state.selectedStory}
+         edit= {this.getAStory}
+
+         />;
 
     }
   }
@@ -129,7 +181,7 @@ getAStory(story) {
       'Story Index',
       'Edit Story',
       'Create Story',
-      'Create Comment'
+      'Create Comment',
     ];
 
 
