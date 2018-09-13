@@ -12,7 +12,10 @@ console.log(props)
         <br />
         <h4>Story: <span>{props.story.title}</span></h4>
         <h4>Author: <span>{props.story.author}</span></h4>
-        <h4>Content: <span>{props.story.content}</span></h4>
+        <h4>Content: <span className="screen">{props.story.content}</span></h4>
+        {/* <h4>Comments: {props.story.comments}</h4> */}
+        <button className='edit-button' onClick={(e) => props.edit(props.story.id)}>Edit Story</button>
+        <button className ='delete-button' onClick={(e) => props.delete(props.story.id)}>Delete</button>
         <br />
         {props.story.story_url ? 
         <a href={props.story.story_url}>Click here for Story</a>

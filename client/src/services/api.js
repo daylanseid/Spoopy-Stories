@@ -37,6 +37,8 @@ function getOneStory(id) {
 //CREATE A STORY
 //Data comes in as nested information under data and attributes. Must also use spread
 function saveStory(story) {
+    //debugger
+    //console.log(story);
     const opts = {
       method: 'POST',
       body: JSON.stringify({ "data": { "attributes": { ...story } } }),

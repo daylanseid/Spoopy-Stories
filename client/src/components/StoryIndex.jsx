@@ -35,9 +35,9 @@ function StoryIndex(props) {
                 return (
                     <div className="story-index" key={story.id}>
                         <img src={story.img_url} alt="Story Poster" />
-                        <h1>Title: {story.title}</h1>
+                        <h1 className="story-title">Title: {story.title}</h1>
                         <h3>Author: {story.author}</h3>
-                        <button className="story-detailbutton"
+                        <button className="myButton"
                             onClick={(ev) => {
                                 // ev.preventDefault();
                                 props.detail(story)
@@ -45,6 +45,8 @@ function StoryIndex(props) {
                             }} >
                             View Story Detail
                         </button>
+   
+
                     </div>
                 );
             })}

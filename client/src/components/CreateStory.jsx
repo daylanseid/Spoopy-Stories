@@ -42,7 +42,7 @@ class CreateStory extends Component {
 
   render() {
     return (
-      <div className="create-story">
+      <div  className="create-story">
         <h2>Create Story</h2>
         <form onSubmit={this.handleSubmit}>
           <label> Title </label>

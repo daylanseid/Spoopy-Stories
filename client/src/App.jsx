@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import Header from './components/Header';
 import StoryIndex from './components/StoryIndex';
 import StoryDetails from './components/StoryDetails';
 import CreateStory from './components/CreateStory';
 import EditStory from './components/EditStory';
+import HomePage from './components/Homepage';
+
 
 import './App.css';
 import {
@@ -45,15 +46,22 @@ class App extends Component {
     this.getAStory = this.getAStory.bind(this);
     this.updateStory = this.updateStory.bind(this);
     this.deleteStory = this.deleteStory.bind(this);
+    this.deleteStory = this.deleteStory.bind(this);
   }
+
   //When the page loads, all stories will show
   componentDidMount() {
-    getStories(1)
-      .then(data => {
-        //debugger
-        //console.log(data.stories);
-        this.setState({ stories: data.stories })});
+    this.fetchAllStories()
   }
+
+fetchAllStories() {
+  getStories()
+    .then(data => {
+      this.setState({
+        stories: data.stories,
+      })
+    })
+}
 
 
 //GET ALL REVIEWS FOR A STORY
@@ -82,7 +90,7 @@ fetchAllComments(id, title) {
     .then(data => getStories())
     .then(data => {
       this.setState ({
-        currentView: 'Create Story',
+        currentView: 'Story Index',
         stories: data.stories
       });
     });
@@ -93,7 +101,7 @@ getAStory(story) {
   //console.log(story)
   getOneStory(story.id)
     .then(data => {
-      debugger
+      //debugger
       console.log(data);
       this.setState({
         selectedStory: data.story,
@@ -117,21 +125,20 @@ getAStory(story) {
 
   //DELETE STORY
  // Deletes a podcast and rerenders the index
- deleteStory(id) {
-  deleteStory(id)
+ deleteStory(story_id) {
+  deleteStory(story_id)
     .then(data => {
       getStories()
-        .then(data => this.setState({
+        .then(data => 
+          this.setState({
           stories: data.stories,
           comments: [],
           storyDetails: {},
+          currentView: 'Story Index'
         }));
     });
+  //this.fetchAllStories();
 }
-
-
-
-
 
   determineWhichToRender() {
     const { currentView } = this.state;
@@ -142,6 +149,7 @@ getAStory(story) {
         return <StoryIndex
          stories={this.state.stories}
          detail = {this.getAStory}
+         onSubmit = {this.fetchAllStories}
          //selectStory={this.selectStory}
          view={this.fetchAllComments}
          />;
@@ -165,7 +173,11 @@ getAStory(story) {
          onClick={this.selectStory}
          story={this.state.selectedStory}
          edit= {this.getAStory}
-
+         delete ={this.deleteStory}
+         />;
+         break;
+         case 'Home Page':
+         return <HomePage 
          />;
 
     }
