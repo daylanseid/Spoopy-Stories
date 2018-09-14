@@ -23,8 +23,6 @@ function getComments(id) {
 
 //SHOW A STORY
 function getOneStory(id) {
-    //console.log(id);
-    //debugger
     return fetch(BASE_URL + `/stories/${id}`)   
     .then(resp => resp.json())
     .catch(err => {
@@ -37,8 +35,6 @@ function getOneStory(id) {
 //CREATE A STORY
 //Data comes in as nested information under data and attributes. Must also use spread
 function saveStory(story) {
-    //debugger
-    //console.log(story);
     const opts = {
       method: 'POST',
       body: JSON.stringify({ "data": { "attributes": { ...story } } }),
@@ -65,10 +61,10 @@ function saveStory(story) {
 
 
 //UPDATE/EDIT A STORY
-function updateStory(story,id) {
+function updateStory(story) {
     const opts = {
       method: 'PUT',
-      body: JSON.stringify(story.id),
+      body: JSON.stringify({ "data": { "attributes": { ...story } } }),
       headers: {
         'Content-Type': 'application/json'
       }

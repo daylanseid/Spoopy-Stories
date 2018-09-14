@@ -1,54 +1,49 @@
 *{
   margin: 0 auto;
+  box-sizing: border-box;
 }
-.App-header {
-   background-color: #010a00; 
-   background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png"); 
 
-  /* background-color: green; */
+
+.App-header {
+  background-color: #010a00; 
+  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png"); 
   height: 15vh;
-   padding: 2vw;   
+  padding: 2vw;   
   color: white;
 }
 
-/*
-.App-title {
-  font-size: 40px;
-  text-align: center;
-  border: solid 2px pink;
-}
-*/
 .App-intro {
   font-size: large;
-}
-
-/* NAV BAR */
-
-.header {
-  padding: 15px 20px 15px 20px;
-  margin: 0;
-  background: rgb(59, 56, 56);
-  border: solid 2px purple;
-  display: flex;
-  justify-content: space-around;
-  font-size: 20px;
-  font-weight: 600;
-  color: rgb(114, 25, 25);
-  letter-spacing: 5px;
 }
 
 
 /* ------------------------------------- */
 
-/* APP TITLE */
-  
 
+/* NAV BAR */
+.header {
+  padding: 15px 20px 15px 20px;
+  margin: 0;
+  /* border: solid 2px purple; */
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+  color: rgb(196, 13, 13);
+ 
+}
+
+
+/* ------------------------------------- */
+
+
+
+/* APP TITLE */
 h1 {
-  font-weight: 400;
-  font-size: 50px;
+  font-weight: 300;
+  font-size: 70px;
   text-align: center;
   text-transform: uppercase;
-  border: solid 2px yellow;
+  /* border: solid 2px yellow; */
   
 }
 .neon {
@@ -70,13 +65,12 @@ h1 {
 
 
 /* GHOST ANIMATION */
-
 .halloween-animation {
   position: relative;
   display: inline-block;
   font-size: 20px;
   font-weight: 600;
-  border: solid 2px yellow;
+  /* border: solid 2px yellow; */
   letter-spacing: 5px;
 }
 
@@ -139,17 +133,39 @@ h1 {
   left: 50%;
   background: url('data:image/svg+xml;charset=UTF8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 15 713 940"><path fill="%23FFF" fill-rule="evenodd" d="M512.55 45.45c14.42 6.64 28.84 13.35 42.37 21.69 17.15 10 32.91 22.12 48.31 34.61 27.61 23.92 51.72 51.98 70.75 83.19 19.39 31.72 33.49 66.66 41.57 102.95 5.04 22.35 7.3 45.24 8.15 68.1-.06 151.66-.01 303.32-.02 454.98.1 5.63-.24 11.27.17 16.9 1.29 8.02-.66 16.07-2.1 23.93-8.22 38.75-34.91 73.24-70.8 90.14-22.36 11.06-48.14 15.17-72.84 11.85-25.79-2.59-50.28-14.23-69.78-31.12-12.09-9.98-21.62-22.77-29.05-36.51-19.52 36.18-57.22 62.02-98.14 66.54-6.69 1.07-13.47.44-20.2 1.02-22.82-.88-45.64-7.33-64.87-19.84-18.49-11.41-34.1-27.58-44.57-46.64-23.14 36.72-65.92 60.8-109.52 59.61-21.45.77 47.22-5.13 28.34-15.07-27.88-15.08-50.21-40.37-60.96-70.26-2.19-7.44-5.05-14.75-6.32-22.41-.1-108.03-.01-216.07-.04-324.1-.08-53.67.17-107.35-.17-161.02.45-20.26 2.6-40.49 6.65-60.35 3.26-16.5 8.28-32.61 13.69-48.51 21.75-59.51 60.55-112.51 110.27-151.73 52.51-41.63 89.586-40.54 156.146-47.95 62.86-7.24 64.874-25.06 122.964 0z"/><path fill-rule="evenodd" d="M326.92 18.1c62.86-7.24 127.54 2.29 185.63 27.35 14.42 6.64 28.84 13.35 42.37 21.69 17.15 10 32.91 22.12 48.31 34.61 27.61 23.92 51.72 51.98 70.75 83.19 19.39 31.72 33.49 66.66 41.57 102.95 5.04 22.35 7.3 45.24 8.15 68.1-.06 151.66-.01 303.32-.02 454.98.1 5.63-.24 11.27.17 16.9 1.29 8.02-.66 16.07-2.1 23.93-8.22 38.75-34.91 73.24-70.8 90.14-22.36 11.06-48.14 15.17-72.84 11.85-25.79-2.59-50.28-14.23-69.78-31.12-12.09-9.98-21.62-22.77-29.05-36.51-19.52 36.18-57.22 62.02-98.14 66.54-6.69 1.07-13.47.44-20.2 1.02-22.82-.88-45.64-7.33-64.87-19.84-18.49-11.41-34.1-27.58-44.57-46.64-23.14 36.72-65.92 60.8-109.52 59.61-21.45.77-42.78-5.13-61.66-15.07-27.88-15.08-50.21-40.37-60.96-70.26-2.19-7.44-5.05-14.75-6.32-22.41-.1-108.03-.01-216.07-.04-324.1-.08-53.67.17-107.35-.17-161.02.45-20.26 2.6-40.49 6.65-60.35 3.26-16.5 8.28-32.61 13.69-48.51C54.92 185.62 93.72 132.62 143.44 93.4c52.51-41.63 116.92-67.89 183.48-75.3zm-151.74 90.18c-53.05 37.67-94.21 92.08-115.14 153.77-2.31 7.61-4.66 15.22-6.84 22.87-5.79 22.59-8.87 45.85-9.44 69.16.25 6.99.26 13.97.16 20.96.01 152.66-.04 305.31.02 457.97 2.26 15.3 8.48 30.04 17.66 42.51 10.36 13.03 23 24.8 38.52 31.33 12.1 5.73 25.36 9.29 38.82 9.05 21.04 1.14 42.29-5.39 59.51-17.43 16.71-11.14 29.16-27.97 36.47-46.56 1.64-5.37 4.27-10.66 8.51-14.44 5.93-5 15.57-4.4 20.84 1.31 3.36 3.25 4.09 8.02 5.32 12.32 1.5 5.52 3.96 10.7 6.18 15.96 9.14 19.11 24.86 34.75 43.62 44.48 12.05 6.85 25.81 10.07 39.57 10.87 17.26 1.13 34.96-2.11 50.41-9.98 24.54-12.13 43.5-34.8 51.15-61.07 1.76-5.09 1.69-11.08 5.63-15.17 5.24-6.11 15.36-6.9 21.39-1.53 3.64 3.76 8.56 6.89 9.67 12.39 3.53 13.05 8.75 25.86 17.09 36.62 5.42 6.51 10.8 13.21 17.6 18.35 14.83 11.93 33.14 19.9 52.2 21.3 29.52 3.58 60.35-7.65 80.89-29.12 15.17-15 24.9-35.28 27.8-56.36-.06-158.6-.02-317.2-.02-475.8-.41-24.82-2.86-49.72-8.97-73.82-16.92-70.17-59.71-133.55-117.74-176.32-13.56-10.49-28.32-19.33-43.41-27.43-11.19-5.23-22.14-11.05-33.78-15.24-43.97-17.11-91.64-24.65-138.75-22.04-62.51 3.28-124.09 24.51-174.94 61.09z"/><path fill-rule="evenodd" d="M285.0306 563.049c21.0553.0065 44.4487.0087 68.12.0082.0106 8.537.023 14.5265.023 14.5265s-1.3466 14.3133 3.461 19.7992c5.7354 7.55 18.363 7.47 24.0185-.13 4.708-5.476 3.362-19.67 3.362-19.67s.009-6 .016-14.529c26.468-.003 52.154-.0088 74.12-.0146.011 8.5456.023 14.543.023 14.543s-1.346 14.3133 3.461 19.7992c5.736 7.5504 18.363 7.4706 24.019-.13 4.708-5.476 3.3617-19.6694 3.3617-19.6694s.0087-6.0108.016-14.552c21.2274-.007 34.553-.0125 34.553-.0125s14.3134 1.3465 19.799-3.461c7.5508-5.7354 7.471-18.363-.1295-24.0185-5.476-4.708-19.6695-3.361-19.6695-3.361s-13.325-.004-34.545-.0087c-.0068-11.8443-.0295-22.1894-.0844-25.3337-.03-7.9396-7.1815-14.9117-15.1012-14.822-7.83-.359-15.161 6.224-15.59 14.064-.0813 3.276-.1147 13.9493-.1244 26.0854-21.968-.004-47.648-.008-74.1-.01-.007-11.8374-.03-22.1743-.085-25.3172-.03-7.9396-7.1813-14.9117-15.101-14.822-7.83-.359-15.161 6.224-15.59 14.064-.0812 3.275-.1145 13.9424-.1243 26.0737-23.6828-.0005-47.074.001-68.1.0054-.007-11.839-.0298-22.178-.0847-25.321-.03-7.9397-7.1815-14.912-15.1012-14.822-7.83-.359-15.161 6.224-15.59 14.064-.081 3.276-.1142 13.951-.124 26.0886-29.159.013-49.2157.035-51.3027.0714-7.9398.03-14.912 7.1816-14.822 15.1013-.359 7.83 6.224 15.161 14.064 15.59 2.1632.0538 22.536.0866 52.0723.1055.0107 8.5488.023 14.549.023 14.549s-1.3465 14.3132 3.4612 19.799c5.7353 7.5507 18.363 7.471 24.0184-.1296 4.708-5.476 3.361-19.6695 3.361-19.6695s.0088-6.0025.016-14.5347z"/><path fill-rule="evenodd" d="M285.0306 563.049c21.0553.0065 44.4487.0087 68.12.0082.0106 8.537.023 14.5265.023 14.5265s-1.3466 14.3133 3.461 19.7992c5.7354 7.55 18.363 7.47 24.0185-.13 4.708-5.476 3.362-19.67 3.362-19.67s.009-6 .016-14.529c26.468-.003 52.154-.0088 74.12-.0146.011 8.5456.023 14.543.023 14.543s-1.346 14.3133 3.461 19.7992c5.736 7.5504 18.363 7.4706 24.019-.13 4.708-5.476 3.3617-19.6694 3.3617-19.6694s.0087-6.0108.016-14.552c21.2274-.007 34.553-.0125 34.553-.0125s14.3134 1.3465 19.799-3.461c7.5508-5.7354 7.471-18.363-.1295-24.0185-5.476-4.708-19.6695-3.361-19.6695-3.361s-13.325-.004-34.545-.0087c-.0068-11.8443-.0295-22.1894-.0844-25.3337-.03-7.9396-7.1815-14.9117-15.1012-14.822-7.83-.359-15.161 6.224-15.59 14.064-.0813 3.276-.1147 13.9493-.1244 26.0854-21.968-.004-47.648-.008-74.1-.01-.007-11.8374-.03-22.1743-.085-25.3172-.03-7.9396-7.1813-14.9117-15.101-14.822-7.83-.359-15.161 6.224-15.59 14.064-.0812 3.275-.1145 13.9424-.1243 26.0737-23.6828-.0005-47.074.001-68.1.0054-.007-11.839-.0298-22.178-.0847-25.321-.03-7.9397-7.1815-14.912-15.1012-14.822-7.83-.359-15.161 6.224-15.59 14.064-.081 3.276-.1142 13.951-.124 26.0886-29.159.013-49.2157.035-51.3027.0714-7.9398.03-14.912 7.1816-14.822 15.1013-.359 7.83 6.224 15.161 14.064 15.59 2.1632.0538 22.536.0866 52.0723.1055.0107 8.5488.023 14.549.023 14.549s-1.3465 14.3132 3.4612 19.799c5.7353 7.5507 18.363 7.471 24.0184-.1296 4.708-5.476 3.361-19.6695 3.361-19.6695s.0088-6.0025.016-14.5347zm313.5798-364.1015c7.406-5.3816 18.7875-2.2932 22.6707 5.9335 3.5 7.1947 9.626 14.871 6.989 23.3234-2.412 8.8785-13.573 13.681-21.681 9.3225-7.101-3.32-8.503-11.741-12.457-17.754-4.353-6.724-2.204-16.479 4.479-20.826zm-87.74-57.851c-4.3575-6.6798-2.4644-16.4218 4.165-20.8898 5.0258-3.7692 11.8582-3.3845 17.327-.864 15.6263 5.1925 30.027 14.2334 41.0928 26.4766 4.2127 3.706 6.76 8.7692 10.351 13.0144 2.7693 4.8485 6.4694 9.8098 6.139 15.6856-.2232 6.7787-5.4238 12.9862-12.0866 14.316-6.5563 1.6118-13.8753-1.7484-16.9455-7.7585-6.053-10.729-14.479-20.3458-25.289-26.4562-5.05-3.202-10.737-5.105-16.348-7.0385-3.4432-1.106-6.473-3.41-8.405-6.485zM254 401c33.137 0 60-26.863 60-60s-26.863-60-60-60-60 26.863-60 60 26.863 60 60 60zm220 0c33.137 0 60-26.863 60-60s-26.863-60-60-60-60 26.863-60 60 26.863 60 60 60z"/></svg>') no-repeat;
 }
+
+
+
 /* ------------------------------------ */
 
 
+
+/* IMAGES */
 img {
   display: inline-block;
   height:300px;
   width: 400px;
+  padding:1px;
+  border:1px solid #021a40;
+  background-color:rgb(180, 170, 170);
+}
+img:hover { 
+  background-color: yellow;
+}
+.detail-img {
+  display: inline-block;
+  height:400px;
+  width: 500px;
+  padding:1px;
+  border:1px solid #021a40;
+  background-color:rgb(180, 170, 170);
 }
 
 
+/* ------------------------------------- */
 
+
+/* STORY DETAILS */
 .myButton {
 	-moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
 	-webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
@@ -175,88 +191,171 @@ img {
 	position:relative;
 	top:1px;
 }
-/* .story-detailbutton {
-  margin: 1vh 2vw 2vw 2vw;
-  height: 5vh;
-  width: 15vh;
-  background-color: red;
-  border-radius: 5px;
-  text-align: center;
-  color: black;
-} */
-
-
-/* Story details */
-
 .story-details {
   text-align: center;
   border: white;
   color: white;
-  margin-top: 8vh;
+  margin-top: 15vh;
   margin-bottom: 5vh;
 }
+.detail-title {
+  font-size: 30px;
+  font-family: 'Nosifer', cursive;
+  color:rgb(139, 25, 25);
+}
+.detail {
+  color: whitesmoke;
+  font-size: 30px;
+}
+.detail-names {
+  font-size: 20px;
+}
 
-/*Create Story */
+a {
+  font-size: 20px;
+}
+
+.delete-button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  font-size: 40px;
+  border-radius: 8px;
+}
+.delete-button:hover {
+  background-color: rgb(68, 7, 7); /* Green */
+  color: rgb(245, 21, 21);
+}
+
+
+/* --------------------------------- */
+
+
+/*CREATE STORY */
 .create-story {
   text-align: center;
-  margin-top: 5vh;
-  margin-left: 10vw;
+  margin-top: 20vh;
+  margin-left: 35vw;
+  margin-right: 10vw;
   margin-bottom: 5vh;
+  width: 40vw;
   /* border: solid 2px blue; */
-  padding: 10vw;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+  }
 }
 
 
-/* FORMS */
+/* --------------------------------- */
 
 
 
 /* STORY INDEX */
-
 .story-index {
   text-align: center;
-  border: solid 2px red;
-  /* margin-left: 10vw; */
-  /* margin-right: 10vw; */
-  padding: 2vw 2vw 2vw 2vw;
-  width: 50vw;
-  
+   /* border: solid 2px rgb(180, 126, 126); */ 
+   margin-left: 15vw; 
+   margin-right: 10vw; 
+   width: 50vw;
 }
 
-/* NEED TO EDIT FOR DIVS */
 .storyindex {
-  margin-top: 10vh;
+  margin-top: 20vh;
   margin-left: 10vw;
   margin-right: 10vw;
-  border: solid 2px blue;
-  /* display:flex; */
+  /* border: solid 2px blue; */
+  position: relative;
 }
 
 .story-title {
+  font-size: 30px;
+  font-family: 'Nosifer', cursive;
+  color:rgb(139, 25, 25);
+}
+
+.story-author {
+  color: whitesmoke;
   font-size: 20px;
 }
 
+
 /* --------------------------------- */
 
-/* EDIT STORY  */
 
+
+/* EDIT STORY  */
 .edit-story {
   text-align: center;
-  margin-top: 5vh;
-  margin-left: 10vw;
+  margin-top: 10vh;
+  margin-left: 40vw;
   margin-bottom: 5vh;
-  border: solid 2px blue;
+  /* border: solid 2px blue; */
   padding: 10vw;
+  width: 40vw;
 }
 
 
+/* --------------------------------- */
 
 
-/*Flash lights*/
+
+/*FLASHING LETTERS*/
 body {
   background-color: #010a00; 
   background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png"); 
-
 }
 
 .word-flash {
@@ -267,7 +366,7 @@ body {
   font-size: 3rem;
   line-height: 0.75;
   position: right;
-  border: solid 2px rgb(173, 173, 187);
+  /* border: solid 2px rgb(173, 173, 187); */
   width: 25vw;
 }
 
@@ -312,8 +411,9 @@ span.light {
 
 /* ------------------------------------ */
 
-/*STORY CONTENT */
 
+
+/*STORY CONTENT */
  body {
   background-color:#000;
   margin:0;
@@ -326,28 +426,25 @@ span.light {
   background-image:radial-gradient(#444, #111);
   box-shadow:0 0 5vmin 1vmin #000 inset;
   box-sizing:border-box;
-  font-family:'Fira Mono', monospace;
+  font-family: 'VT323', monospace;
   font-size:20px;
-  height:50vh;
+  height:40vh;
   overflow:hidden;
   padding:10vmin;
-  width:70vw;
+  width:60vw;
   border: solid 2px red;
 }
 
 .screen:before {
   animation:wave 10s infinite ease-in-out;
   content:"";
-  /* height:20vh; */
   left:0;
   opacity:.5;
   position:absolute;
   right:0;
-  /*z-index:1;*/
 }
 
 .screen:after {
-  /* background-image:linear-gradient(transparent, transparent 3px, #222); */
   background-size:4px 4px;
   bottom:0;
   content:"";
@@ -400,10 +497,8 @@ p:last-child:after {
 }
 
 
-
-
-
 /* --------------------------- */
+
 
 /* FOOTER */
 footer {
@@ -413,12 +508,12 @@ footer {
   color: yellow;
   font-size: 14px;
   letter-spacing: .08em;
-  font-weight: 500;
+  font-weight: 300;
 }
 .copyright {
   float: left;
   font-family: "Raleway" , sans-serif;
-  font-size: 2vw;
+  /* font-size: 2vw; */
 }
 
 .message {
@@ -438,5 +533,4 @@ footer {
 .name {
   color: black;
   font-weight: 700;
-  /* padding: 1vw; */
 }

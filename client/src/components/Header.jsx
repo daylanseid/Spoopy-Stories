@@ -7,6 +7,8 @@ function Header(props) {
       <div className="body">
         <h1 className="neon">Spoopy Stories</h1>
       </div>
+      <br />
+      <br />
       <div className="header">
         {links.map(link => {
           return <div className="halloween-animation" href="#"
@@ -15,13 +17,13 @@ function Header(props) {
           >{link}</div>
         })}
       </div>
-        <h2 className="word-flash">
+      <h2 className="word-flash">
         <span className="flash">There's</span>
         <span className="light">darkness</span>
         <span className="flash"> even in</span>
         <span className="flash">the lightest</span>
         <span className="flash">places</span>
-      </h2>  
+      </h2>
     </div>
   );
 }
