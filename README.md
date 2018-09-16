@@ -106,8 +106,11 @@ http://spoopy_stories.surge.sh/
 
 
 ## Appshots & Wireframes
+
 <img width="1418" alt="screen shot 2018-09-15 at 10 06 00 pm" src="https://user-images.githubusercontent.com/39752800/45592144-bf5fd700-b933-11e8-998f-601a6f294d8d.png">
-![horror stories](https://user-images.githubusercontent.com/39752800/45036237-fd065b00-b029-11e8-878c-6ec969eae174.png)
+
+![horror stories](https://user-images.githubusercontent.com/39752800/45592222-8c1e4780-b935-11e8-800c-fcb56a38541c.png)
+
 <img width="450" alt="screen shot 2018-09-04 at 9 52 43 am" src="https://user-images.githubusercontent.com/39752800/45036241-00014b80-b02a-11e8-9dc5-c5fb41a87707.png">
 <img width="457" alt="screen shot 2018-09-04 at 9 52 25 am" src="https://user-images.githubusercontent.com/39752800/45036245-01cb0f00-b02a-11e8-8ebc-a52e9870ce73.png">
 <img width="452" alt="screen shot 2018-09-04 at 9 52 33 am" src="https://user-images.githubusercontent.com/39752800/45036254-055e9600-b02a-11e8-9c32-411d8cc4d55e.png">
@@ -136,11 +139,12 @@ More can be found in the Wireframes folder.
 * Cors
 * Nodemon
 * Bulma
-* Balsamiq
+* Balsamiq(for wireframes)
 * CSS-Grid
 * Ruby
 * Rails
 * FFaker
+* Lucidchart(for ERDs)
  
 
 ## How to Use:
